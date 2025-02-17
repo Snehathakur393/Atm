@@ -1,0 +1,91 @@
+package test2;
+import java.util.Scanner;
+class ATM{
+	double Bal;
+	int PIN=3344;
+	// checking pin
+	ATM()
+	{
+		Scanner S1=new Scanner(System.in);
+		System.out.println("Enter PIN : ");
+		int P=S1.nextInt();
+		if(P==PIN)
+		{
+			Menu();
+		}
+		else
+		{
+			System.out.println("Invalid PIN");
+			Menu();
+		}
+	}
+	public void Menu()
+	{
+		System.out.println("1. Check Balance ");
+		System.out.println("2. Withraw Money ");
+		System.out.println("3. Deposit Money ");
+		System.out.println("4. Exit ");
+		System.out.println("\n Enter Your Choice : ");
+		Scanner S1=new Scanner(System.in);
+		int a=S1.nextInt();
+		if(a==1)
+		{
+			CheckBalance();
+		}
+		else if(a==2)
+		{
+			WithdrawMoney();
+		}
+		else if(a==3)
+		{
+			DepositMoney();
+		}
+		else if(a==4)
+		{
+			return;
+		}
+		else
+		{
+			System.out.println("Invalid Choice. ");
+		}
+	}
+	// for checking balance
+	public void CheckBalance() {
+		System.out.println("Available Balance : "+Bal);
+		Menu();
+	}
+	// for withdrawing money
+	public void WithdrawMoney()
+	{
+		System.out.println("Enter Amount : ");
+		Scanner S1=new Scanner(System.in);
+		double a=S1.nextDouble();
+		if(a>Bal)
+		{
+			System.out.println("Insufficient Balance.");
+			Menu();
+		}
+		else 
+		{
+			Bal=Bal-a;
+			System.out.println(" Money withdrawn successfully.");
+			Menu();
+		}
+	}
+	// for depositing money
+	public void DepositMoney()
+	{
+		System.out.println("Enter Amount : ");
+		Scanner S1=new Scanner(System.in);
+		double a=S1.nextDouble();
+		Bal=Bal+a;
+		System.out.println("Money deposited Successfully.");
+		Menu();
+	}
+}
+public class ATMmachine {
+ public static void main(String[] args)
+ {
+	 ATM obj=new ATM();
+ }
+}
