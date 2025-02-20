@@ -16,7 +16,6 @@ class ATM{
 		else
 		{
 			System.out.println("Invalid PIN");
-			Menu();
 		}
 	}
 	public void Menu()
